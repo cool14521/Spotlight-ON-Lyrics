@@ -6,7 +6,7 @@ services:
       context: docker/php
     volumes:
       - .:/app
-      - composer-volume:/app/vendor
+#      - composer-volume:/app/vendor
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
       - ./.config/psysh:/root/.config/psysh
     command: ["php", "artisan", "serve", "--host", "0.0.0.0"]
