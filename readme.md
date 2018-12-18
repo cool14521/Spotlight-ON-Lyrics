@@ -24,7 +24,7 @@ https://localhost:8000 にアクセス
 ## 技術スタック
 * Docker
 * docker-compose
-* Laravel 5.6.*
+* Laravel 5.7.*
 * PHP 7.2.*
 * Laravel Mix
   * node:9
