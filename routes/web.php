@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+#こっちをindexにする
 Route::get('/index', function () {
     return view('layouts/app');
 });
@@ -29,3 +30,10 @@ Route::post('auth/register', 'Auth\RegisterController@register');
 Route::get('/auth/login', 'Auth\LoginController@showLoginForm');
 Route::post('/auth/login', 'Auth\LoginController@login');
 Route::get('/auth/logout', 'Auth\LoginController@logout');
+
+
+#歌詞を探す
+Route::get('/search', 'Search\SearchController@index');
+
+
+#歌詞を投稿する
