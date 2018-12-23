@@ -9,6 +9,7 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
+                    <th>{{ __('User') }}</th>
                     <th>{{ __('song_name') }}</th>
                     <th>{{ __('Singer') }}</th>
                     <th>{{ __('lyrics') }}</th>
@@ -19,6 +20,11 @@
                 <tbody>
                 @foreach ($posts as $post)
                     <tr>
+                        <td>
+                            <a href="{{ url('users/' . $post->user->id) }}">
+                                {{ $post->user->name }}
+                            </a>
+                        </td>
                         <td>
                             <a href="{{ url('posts/'.$post->id) }}">{{ $post->song_name }}</a>
                         </td>
@@ -31,5 +37,6 @@
                 </tbody>
             </table>
         </div>
+        {{ $posts->links() }}
     </div>
 @endsection
