@@ -8,13 +8,21 @@ use App\Post;
 class PostController extends Controller
 {
     /**
+     * 各アクションの前に実行させるミドルウェア
+     */
+    public function __construct()
+    {
+       $this->middleware('auth')->except(['index', 'show']);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $posts = Post::latest()->get();
+        $posts = Post::latest()->paginate(5);
 
         return view('posts.index', ['posts' => $posts]);
     }
@@ -41,8 +49,9 @@ class PostController extends Controller
         $post->song_name = $request->song_name;
         $post->singer = $request->singer;
         $post->lyrics = $request->lyrics;
+        $post->user_id = $request->user()->id;
         $post->save();
-        return redirect('posts/'.$post->id);
+        return redirect('posts/' . $post->id)->with('my_status', __('Posted new article.'));
     }
 
     /**
@@ -80,7 +89,7 @@ class PostController extends Controller
         $post->singer = $request->singer;
         $post->lyrics = $request->lyrics;
         $post->save();
-        return redirect('posts/' . $post->id);
+        return redirect('posts/' . $post->id)->with('my_status', __('Updated an article.'));
     }
 
     /**
@@ -92,6 +101,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect('posts');
+        return redirect('posts')->with('my_status', __('Deleted an article.'));
     }
 }
