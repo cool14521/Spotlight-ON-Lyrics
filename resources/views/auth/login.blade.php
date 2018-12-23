@@ -1,3 +1,6 @@
+@php
+    $title = __('Login');
+@endphp
 @extends('layouts.app')
 
 @section('content')
