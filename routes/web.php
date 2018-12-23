@@ -31,6 +31,9 @@ Route::get('/auth/login', 'Auth\LoginController@showLoginForm');
 Route::post('/auth/login', 'Auth\LoginController@login');
 Route::get('/auth/logout', 'Auth\LoginController@logout');
 
+#歌詞を投稿する
+Route::resource('posts', 'PostController');
+
 #歌詞を探す
 Route::get('/search', 'Search\SearchController@index');
 
