@@ -34,6 +34,9 @@ Route::get('/auth/logout', 'Auth\LoginController@logout');
 #歌詞を探す
 Route::get('/search', 'Search\SearchController@index');
 
+#user
+Route::resource('users', 'UserController');
+
 #勉強用
 Route::get('foo', function () {
     return 'Foo!';
