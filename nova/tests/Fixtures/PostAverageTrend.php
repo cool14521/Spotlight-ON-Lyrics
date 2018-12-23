@@ -42,6 +42,6 @@ class PostAverageTrend extends Trend
      */
     public function uriKey()
     {
-        return 'post-average-trend';
+        return 'posts-average-trend';
     }
 }

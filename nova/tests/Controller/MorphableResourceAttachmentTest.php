@@ -51,7 +51,7 @@ class MorphableResourceAttachmentTest extends IntegrationTest
 
         $response->assertStatus(422);
         $this->assertCount(0, $post->fresh()->tags);
-        $this->assertFalse(isset($_SERVER['nova.post.relatableTags']));
+        $this->assertFalse(isset($_SERVER['nova.posts.relatableTags']));
     }
 
     public function test_resource_may_specify_custom_relatable_query_customizer()
@@ -62,8 +62,8 @@ class MorphableResourceAttachmentTest extends IntegrationTest
         $tag2 = factory(Tag::class)->create();
         $tag3 = factory(Tag::class)->create();
 
-        $_SERVER['nova.post.useCustomRelatableTags'] = true;
-        unset($_SERVER['nova.post.relatableTags']);
+        $_SERVER['nova.posts.useCustomRelatableTags'] = true;
+        unset($_SERVER['nova.posts.relatableTags']);
 
         $response = $this->withExceptionHandling()
                         ->postJson('/nova-api/posts/'.$post->id.'/attach-morphed/tags', [
@@ -72,13 +72,13 @@ class MorphableResourceAttachmentTest extends IntegrationTest
                             'viaRelationship' => 'tags',
                         ]);
 
-        unset($_SERVER['nova.post.useCustomRelatableTags']);
+        unset($_SERVER['nova.posts.useCustomRelatableTags']);
 
-        $this->assertNotNull($_SERVER['nova.post.relatableTags']);
+        $this->assertNotNull($_SERVER['nova.posts.relatableTags']);
         $response->assertStatus(422);
         $this->assertCount(0, $post->fresh()->tags);
 
-        unset($_SERVER['nova.post.relatableTags']);
+        unset($_SERVER['nova.posts.relatableTags']);
     }
 
     public function test_attached_resource_must_exist()

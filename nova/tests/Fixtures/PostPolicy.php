@@ -13,18 +13,18 @@ class PostPolicy
     }
 
     /**
-     * Determine if the given post can be updated.
+     * Determine if the given posts can be updated.
      */
     public function update($user, $model)
     {
-        return $_SERVER['nova.post.updatable'] ?? true;
+        return $_SERVER['nova.posts.updatable'] ?? true;
     }
 
     /**
-     * Determine if the given post can be deleted.
+     * Determine if the given posts can be deleted.
      */
     public function delete($user, $model)
     {
-        return $_SERVER['nova.post.deletable'] ?? true;
+        return $_SERVER['nova.posts.deletable'] ?? true;
     }
 }

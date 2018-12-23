@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     /**
-     * Get the user that the post belongs to.
+     * Get the user that the posts belongs to.
      */
     public function user()
     {
@@ -23,7 +23,7 @@ class Post extends Model
     }
 
     /**
-     * Get all of the tags for this post.
+     * Get all of the tags for this posts.
      */
     public function tags()
     {

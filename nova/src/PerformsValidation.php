@@ -239,7 +239,7 @@ trait PerformsValidation
     }
 
     /**
-     * Handle any post-validation processing.
+     * Handle any posts-validation processing.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Validation\Validator  $validator
@@ -251,7 +251,7 @@ trait PerformsValidation
     }
 
     /**
-     * Handle any post-creation validation processing.
+     * Handle any posts-creation validation processing.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Validation\Validator  $validator
@@ -263,7 +263,7 @@ trait PerformsValidation
     }
 
     /**
-     * Handle any post-update validation processing.
+     * Handle any posts-update validation processing.
      *
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @param  \Illuminate\Validation\Validator  $validator

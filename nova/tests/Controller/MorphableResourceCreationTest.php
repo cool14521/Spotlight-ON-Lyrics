@@ -71,7 +71,7 @@ class MorphableResourceCreationTest extends IntegrationTest
                         ]);
 
         $response->assertStatus(422);
-        $this->assertFalse(isset($_SERVER['nova.post.relatablePosts']));
+        $this->assertFalse(isset($_SERVER['nova.posts.relatablePosts']));
     }
 
     public function test_resource_may_specify_custom_relatable_query_customizer()
@@ -81,7 +81,7 @@ class MorphableResourceCreationTest extends IntegrationTest
         $post3 = factory(Post::class)->create();
 
         $_SERVER['nova.comment.useCustomRelatablePosts'] = true;
-        unset($_SERVER['nova.post.relatablePosts']);
+        unset($_SERVER['nova.posts.relatablePosts']);
 
         $response = $this->withExceptionHandling()
                         ->postJson('/nova-api/comments', [

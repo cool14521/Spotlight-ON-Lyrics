@@ -27,7 +27,7 @@ trait TrendDateTests
         $post->save();
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-count-trend?range=6');
+                        ->get('/nova-api/posts/metrics/posts-count-trend?range=6');
 
         $response->assertStatus(200);
 
@@ -62,7 +62,7 @@ trait TrendDateTests
 
         // This is kind of a mis-use of the resourceId here since I'm giving it a user-id... but it fits the purpose of this test easily...
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/1/metrics/post-count-trend?range=6');
+                        ->get('/nova-api/posts/1/metrics/posts-count-trend?range=6');
 
         $response->assertStatus(200);
 
@@ -94,7 +94,7 @@ trait TrendDateTests
         $post->save();
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-count-trend?range=6&timezone=America/Chicago');
+                        ->get('/nova-api/posts/metrics/posts-count-trend?range=6&timezone=America/Chicago');
 
         $response->assertStatus(200);
 
@@ -130,7 +130,7 @@ trait TrendDateTests
         $_SERVER['nova.postCountUnit'] = Trend::BY_WEEKS;
 
         $response = $this->withoutExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-count-trend?range=6');
+                        ->get('/nova-api/posts/metrics/posts-count-trend?range=6');
 
         unset($_SERVER['nova.postCountUnit']);
 
@@ -180,7 +180,7 @@ trait TrendDateTests
         $_SERVER['nova.postCountUnit'] = Trend::BY_WEEKS;
 
         $response = $this->withoutExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-count-trend?range=6&timezone=America/Chicago');
+                        ->get('/nova-api/posts/metrics/posts-count-trend?range=6&timezone=America/Chicago');
 
         unset($_SERVER['nova.postCountUnit']);
 
@@ -232,7 +232,7 @@ trait TrendDateTests
         $_SERVER['nova.postCountUnit'] = Trend::BY_DAYS;
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-count-trend?range=6');
+                        ->get('/nova-api/posts/metrics/posts-count-trend?range=6');
 
         unset($_SERVER['nova.postCountUnit']);
 
@@ -267,7 +267,7 @@ trait TrendDateTests
         $_SERVER['nova.postCountUnit'] = Trend::BY_HOURS;
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-count-trend?range=6');
+                        ->get('/nova-api/posts/metrics/posts-count-trend?range=6');
 
         unset($_SERVER['nova.postCountUnit']);
 
@@ -302,7 +302,7 @@ trait TrendDateTests
         $_SERVER['nova.postCountUnit'] = Trend::BY_HOURS;
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-count-trend?range=6&timezone=America/Chicago');
+                        ->get('/nova-api/posts/metrics/posts-count-trend?range=6&timezone=America/Chicago');
 
         unset($_SERVER['nova.postCountUnit']);
 
@@ -339,7 +339,7 @@ trait TrendDateTests
         $_SERVER['nova.postCountUnit'] = Trend::BY_MINUTES;
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-count-trend?range=6');
+                        ->get('/nova-api/posts/metrics/posts-count-trend?range=6');
 
         unset($_SERVER['nova.postCountUnit']);
 
@@ -374,7 +374,7 @@ trait TrendDateTests
         $_SERVER['nova.postCountUnit'] = Trend::BY_MINUTES;
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-count-trend?range=6&timezone=America/Chicago');
+                        ->get('/nova-api/posts/metrics/posts-count-trend?range=6&timezone=America/Chicago');
 
         unset($_SERVER['nova.postCountUnit']);
 
@@ -411,7 +411,7 @@ trait TrendDateTests
         $_SERVER['nova.postCountUnit'] = Trend::BY_MINUTES;
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-count-trend?range=6&twelveHourTime=true');
+                        ->get('/nova-api/posts/metrics/posts-count-trend?range=6&twelveHourTime=true');
 
         unset($_SERVER['nova.postCountUnit']);
 
@@ -446,7 +446,7 @@ trait TrendDateTests
         $_SERVER['nova.postCountUnit'] = Trend::BY_MINUTES;
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-count-trend?range=6&twelveHourTime=true&timezone=America/Chicago');
+                        ->get('/nova-api/posts/metrics/posts-count-trend?range=6&twelveHourTime=true&timezone=America/Chicago');
 
         unset($_SERVER['nova.postCountUnit']);
 
@@ -485,7 +485,7 @@ trait TrendDateTests
         $post->save();
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-average-trend?range=6');
+                        ->get('/nova-api/posts/metrics/posts-average-trend?range=6');
 
         $response->assertStatus(200);
 
@@ -519,7 +519,7 @@ trait TrendDateTests
         $post->save();
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-sum-trend?range=6');
+                        ->get('/nova-api/posts/metrics/posts-sum-trend?range=6');
 
         $response->assertStatus(200);
         $this->assertEquals(300, $response->original['value']->trend[Chronos::now()->subMonths(5)->addDays(3)->format('F Y')]);
@@ -564,7 +564,7 @@ trait TrendDateTests
         $post->save();
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-sum-trend?range=6');
+                        ->get('/nova-api/posts/metrics/posts-sum-trend?range=6');
 
         unset($_SERVER['nova.postCountUnit']);
 
@@ -600,7 +600,7 @@ trait TrendDateTests
         $post->save();
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-max-trend?range=6');
+                        ->get('/nova-api/posts/metrics/posts-max-trend?range=6');
 
         $response->assertStatus(200);
         $this->assertEquals(500, $response->original['value']->trend[Chronos::now()->subMonths(5)->addDays(3)->format('F Y')]);
@@ -633,7 +633,7 @@ trait TrendDateTests
         $post->save();
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-min-trend?range=6');
+                        ->get('/nova-api/posts/metrics/posts-min-trend?range=6');
 
         $response->assertStatus(200);
         $this->assertEquals(50, $response->original['value']->trend[Chronos::now()->subMonths(5)->addDays(3)->format('F Y')]);

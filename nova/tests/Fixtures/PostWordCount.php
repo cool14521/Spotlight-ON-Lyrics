@@ -40,6 +40,6 @@ class PostWordCount extends Value
      */
     public function uriKey()
     {
-        return 'post-word-count';
+        return 'posts-word-count';
     }
 }

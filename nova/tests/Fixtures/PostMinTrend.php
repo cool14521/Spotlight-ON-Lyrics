@@ -42,6 +42,6 @@ class PostMinTrend extends Trend
      */
     public function uriKey()
     {
-        return 'post-min-trend';
+        return 'posts-min-trend';
     }
 }

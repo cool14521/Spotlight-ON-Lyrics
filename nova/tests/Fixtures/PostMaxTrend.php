@@ -42,6 +42,6 @@ class PostMaxTrend extends Trend
      */
     public function uriKey()
     {
-        return 'post-max-trend';
+        return 'posts-max-trend';
     }
 }
