@@ -74,11 +74,11 @@ class PostResource extends Resource
      */
     public static function relatableUsers(NovaRequest $request, $query)
     {
-        if (! isset($_SERVER['nova.post.useCustomRelatableUsers'])) {
+        if (! isset($_SERVER['nova.posts.useCustomRelatableUsers'])) {
             return UserResource::relatableQuery($request, $query);
         }
 
-        $_SERVER['nova.post.relatableUsers'] = $query;
+        $_SERVER['nova.posts.relatableUsers'] = $query;
 
         return $query->where('id', '<', 3);
     }
@@ -92,11 +92,11 @@ class PostResource extends Resource
      */
     public static function relatableTags(NovaRequest $request, $query)
     {
-        if (! isset($_SERVER['nova.post.useCustomRelatableTags'])) {
+        if (! isset($_SERVER['nova.posts.useCustomRelatableTags'])) {
             return TagResource::relatableQuery($request, $query);
         }
 
-        $_SERVER['nova.post.relatableTags'] = $query;
+        $_SERVER['nova.posts.relatableTags'] = $query;
 
         return $query->where('id', '<', 3);
     }

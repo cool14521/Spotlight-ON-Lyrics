@@ -42,6 +42,6 @@ class PostSumTrend extends Trend
      */
     public function uriKey()
     {
-        return 'post-sum-trend';
+        return 'posts-sum-trend';
     }
 }

@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 #こっちをindexにする
-Route::get('/index', function () {
+Route::get('/', function () {
     return view('layouts/app');
 });
 
@@ -31,9 +31,21 @@ Route::get('/auth/login', 'Auth\LoginController@showLoginForm');
 Route::post('/auth/login', 'Auth\LoginController@login');
 Route::get('/auth/logout', 'Auth\LoginController@logout');
 
+#歌詞を投稿する
+Route::resource('posts', 'PostController');
 
 #歌詞を探す
 Route::get('/search', 'Search\SearchController@index');
 
+#user
+Route::resource('users', 'UserController');
 
-#歌詞を投稿する
+#勉強用
+Route::get('foo', function () {
+    return 'Foo!';
+});
+
+Route::get('foo/foo1', 'PracticeController@foo1');
+Route::get('foo/foo2', 'PracticeController@foo2');
+Route::get('foo/foo3', 'PracticeController@foo3');
+Route::get('foo/foo4', 'PracticeController@foo4');

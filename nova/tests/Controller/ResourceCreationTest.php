@@ -132,7 +132,7 @@ class ResourceCreationTest extends IntegrationTest
         $response->assertStatus(422);
 
         // Ensure base User::relatableQuery was called...
-        $this->assertFalse(isset($_SERVER['nova.post.relatableUsers']));
+        $this->assertFalse(isset($_SERVER['nova.posts.relatableUsers']));
     }
 
     public function test_resource_may_specify_custom_relatable_query_customizer()
@@ -141,8 +141,8 @@ class ResourceCreationTest extends IntegrationTest
         $user2 = factory(User::class)->create();
         $user3 = factory(User::class)->create();
 
-        $_SERVER['nova.post.useCustomRelatableUsers'] = true;
-        unset($_SERVER['nova.post.relatableUsers']);
+        $_SERVER['nova.posts.useCustomRelatableUsers'] = true;
+        unset($_SERVER['nova.posts.relatableUsers']);
 
         $response = $this->withExceptionHandling()
                         ->postJson('/nova-api/posts', [
@@ -150,12 +150,12 @@ class ResourceCreationTest extends IntegrationTest
                             'title' => 'Fake Title',
                         ]);
 
-        unset($_SERVER['nova.post.useCustomRelatableUsers']);
+        unset($_SERVER['nova.posts.useCustomRelatableUsers']);
 
-        $this->assertNotNull($_SERVER['nova.post.relatableUsers']);
+        $this->assertNotNull($_SERVER['nova.posts.relatableUsers']);
         $response->assertStatus(422);
 
-        unset($_SERVER['nova.post.relatableUsers']);
+        unset($_SERVER['nova.posts.relatableUsers']);
     }
 
     public function test_parent_resource_policy_may_prevent_adding_related_resources()

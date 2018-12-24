@@ -239,7 +239,7 @@ class MetricControllerTest extends IntegrationTest
         $post->save();
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-word-count?range=30');
+                        ->get('/nova-api/posts/metrics/posts-word-count?range=30');
 
         $response->assertStatus(200);
         $this->assertEquals(100, $response->original['value']->value);
@@ -256,7 +256,7 @@ class MetricControllerTest extends IntegrationTest
         $post->save();
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-word-count?range=MTD');
+                        ->get('/nova-api/posts/metrics/posts-word-count?range=MTD');
 
         $response->assertStatus(200);
         $this->assertEquals(100, $response->original['value']->value);
@@ -273,7 +273,7 @@ class MetricControllerTest extends IntegrationTest
         $post->save();
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-word-count?range=QTD');
+                        ->get('/nova-api/posts/metrics/posts-word-count?range=QTD');
 
         $response->assertStatus(200);
         $this->assertEquals(100, $response->original['value']->value);
@@ -290,7 +290,7 @@ class MetricControllerTest extends IntegrationTest
         $post->save();
 
         $response = $this->withExceptionHandling()
-                        ->get('/nova-api/posts/metrics/post-word-count?range=YTD');
+                        ->get('/nova-api/posts/metrics/posts-word-count?range=YTD');
 
         $response->assertStatus(200);
         $this->assertEquals(100, $response->original['value']->value);

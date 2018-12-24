@@ -49,6 +49,6 @@ class PostCountTrend extends Trend
      */
     public function uriKey()
     {
-        return 'post-count-trend';
+        return 'posts-count-trend';
     }
 }

@@ -78,7 +78,7 @@ class AuthenticationTest extends IntegrationTest
     //     ]);
 
     //     $response = $this->withExceptionHandling()
-    //                     ->post('/nova/password/email', [
+    //                     ->posts('/nova/password/email', [
     //                         'email' => 'taylor@laravel.com',
     //                     ]);
 
@@ -93,7 +93,7 @@ class AuthenticationTest extends IntegrationTest
     //     $response->assertStatus(200);
 
     //     $response = $this->withExceptionHandling()
-    //                     ->post('/nova/password/reset', [
+    //                     ->posts('/nova/password/reset', [
     //                         'token' => User::$passwordResetToken,
     //                         'email' => 'taylor@laravel.com',
     //                         'password' => 'taylor',

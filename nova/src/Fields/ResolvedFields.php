@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 class ResolvedFields extends Fluent
 {
     /**
-     * The post-storage callbacks for the fields.
+     * The posts-storage callbacks for the fields.
      *
      * @var \Illuminate\Support\Collection
      */
@@ -29,7 +29,7 @@ class ResolvedFields extends Fluent
     }
 
     /**
-     * Get the post-storage callbacks for the fields.
+     * Get the posts-storage callbacks for the fields.
      *
      * @return \Illuminate\Support\Collection
      */
