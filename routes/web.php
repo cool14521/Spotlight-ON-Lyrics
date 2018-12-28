@@ -17,7 +17,7 @@
 
 #こっちをindexにする
 Route::get('/', function () {
-    return view('layouts/app');
+    return view('index');
 });
 
 Auth::routes();
@@ -35,7 +35,7 @@ Route::get('/auth/logout', 'Auth\LoginController@logout');
 Route::resource('posts', 'PostController');
 
 #歌詞を探す
-Route::get('/search', 'Search\SearchController@index');
+Route::get('/searches', 'Search\SearchController@index');
 
 #user
 Route::resource('users', 'UserController');
